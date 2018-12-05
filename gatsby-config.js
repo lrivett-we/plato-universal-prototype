@@ -1,17 +1,25 @@
 const environment = process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development';
 require("dotenv").config({path: `.env.${environment}`});
 
-const options = {
-  accessToken: process.env.ACCESS_TOKEN,
-  homeSlug: "home",
-  version: "draft",
-}
+const plugins = [
+  "gatsby-plugin-react-helmet",
+  "gatsby-plugin-offline",
+  "gatsby-plugin-sass",
+];
 
 if (environment === "production") {
-  options.version = "published";
+  plugins.push({
+    options: {
+      accessToken: process.env.ACCESS_TOKEN,
+      homeSlug: "home",
+      version: "published",
+    },
+    resolve: "gatsby-source-storyblok",
+  });
 }
 
 module.exports = {
+  plugins,
   siteMetadata: {
     environment,
     title: "Gatsby Default Starter",
@@ -19,13 +27,4 @@ module.exports = {
     oauthToken: process.env.OAUTH_TOKEN,
     accessToken: process.env.ACCESS_TOKEN,
   },
-  plugins: [
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-offline",
-    "gatsby-plugin-sass",
-    {
-      options,
-      resolve: "gatsby-source-storyblok",
-    },
-  ],
 }

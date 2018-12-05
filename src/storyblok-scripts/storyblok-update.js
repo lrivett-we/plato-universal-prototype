@@ -10,7 +10,7 @@ const StoryblokClient = require("storyblok-js-client");
 const components = require("../components/settings").default;
 
 const sbConfig = require("../../gatsby-config");
-const spaceId = sbConfig.siteMetadata.spaceId;
+const spaceId = process.env.SPACE_ID;
 const oauthToken = sbConfig.siteMetadata.oauthToken;
 
 const getComponentUpdates = (liveComponents, sourceComponents) => {

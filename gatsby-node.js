@@ -3,6 +3,11 @@ const datasource = require("./src/datasources/datasources");
 const languages = datasource.languages;
 
 exports.createPages = async ({ graphql, actions }) => {
+  const environment = process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development';
+  if (environment === "development" || environment === "content-service") {
+    return;
+  }
+
   const { createPage } = actions;
   
   const storyblokEntry = path.resolve('src/templates/storyblok-entry.js');

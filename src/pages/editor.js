@@ -8,7 +8,7 @@ const languages = datasource.languages;
 const loadStoryblokBridge = function(cb, data) {
   let script = document.createElement('script')
   script.type = 'text/javascript'
-  script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${data.site.siteMetadata.accessToken}`
+  script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${getParam("token")}`
   script.onload = cb
   document.getElementsByTagName('head')[0].appendChild(script)
 }
