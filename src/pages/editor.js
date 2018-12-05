@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from "gatsby"
 import Components from '../components/components.js';
 import SbEditable from 'storyblok-react';
 const datasource = require("../datasources/datasources");
@@ -125,13 +124,3 @@ class StoryblokEntry extends React.Component {
 }
 
 export default StoryblokEntry
-
-export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        accessToken
-      }
-    }
-  }
-`
