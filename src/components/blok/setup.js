@@ -37,6 +37,7 @@ const names= [
   {
     folder: "good-feature",
     class: "GoodFeature",
+    technical: "goodFeature",
   },
   {
     folder: "hero-image",
