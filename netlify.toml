@@ -1,14 +1,14 @@
 
-[build]
-  build = "yarn build"
-
-[context.content-service]
-  build = "bash netlify-content-service"
-
 [context.content-service.environment]
   SPACE_IDS = "51126 51127"
   OAUTH_TOKEN = "SXJVRJEavlvir0mtsgWN3gtt-45470-5tA_3-ajjsd4p5ni7fbt"
   ACTIVE_ENV = "content-service"
+
+[context."production/the-final-frontier"]
+  build = "yarn build"
+
+[context."production/i-need-my-space"]
+  build = "yarn build"
 
 [context."production/the-final-frontier".environment]
   SPACE_ID = "51126"
