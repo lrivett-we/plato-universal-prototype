@@ -1,0 +1,15 @@
+#!/bin/bash
+
+./space setup
+
+for SPACE_ID in ${SPACE_IDS}; do
+  SPACE_ID=$SPACE_ID ./space update
+done
+
+
+# Publish hook for the-final-frontier
+curl -X POST -d {} https://api.netlify.com/build_hooks/5c0994a973f2cf1ee3ec4da0
+# Publish hook for i-need-my-space
+curl -X POST -d {} https://api.netlify.com/build_hooks/5c099493dd28ef615e7c1520
+
+yarn build

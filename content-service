@@ -1,9 +1,0 @@
-#!/bin/bash
-
-./space setup
-
-for SPACE_ID in ${SPACE_IDS}; do
-  SPACE_ID=$SPACE_ID ./space update
-done
-
-yarn build

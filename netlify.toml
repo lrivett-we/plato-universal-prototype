@@ -1,11 +1,22 @@
 
+[build]
+  build = "yarn build"
+
+[context.content-service]
+  build = "bash netlify-content-service"
+
+[context.content-service.environment]
+  SPACE_IDS = "51126 51127"
+  OAUTH_TOKEN = "SXJVRJEavlvir0mtsgWN3gtt-45470-5tA_3-ajjsd4p5ni7fbt"
+  ACTIVE_ENV = "content-service"
+
 [context."production/the-final-frontier".environment]
   SPACE_ID = "51126"
-  ACCESS_TOKEN = "97GrlqA78g6gEKjrE6fIcQtt"
+  ACCESS_TOKEN = "HbKc4mWls4u74Rr3lrW9mgtt"
+  ACTIVE_ENV = "production"
 
 [context."production/i-need-my-space".environment]
   SPACE_ID = "51127"
   ACCESS_TOKEN = "jgBRrDrdFsjPJr2efDrhpwtt"
-  
-[context.production]
-  build = "echo Nothing to do here"
+  ACTIVE_ENV = "production"
+
